@@ -2,12 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FiShoppingCart } from "react-icons/fi";
 import { RiSearchLine } from "react-icons/ri";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FaShoppingCart } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
-
 import { FaChevronDown } from "react-icons/fa";
 import logoNav from "../../public/logoNav.png";
 
@@ -70,7 +66,7 @@ const Nav = () => {
               < MdShoppingCart className="w-[24px] h-[22px]" />
             </Link>
             {/* Login Button */}
-            <Link href={{ pathname: "/account", query: { view: "sign-in" } }} className="text-[#FFFFFF] text-[16px] font-roboto font-medium leading-[24px] tracking-[0.5px]" >
+            <Link href="/login" className="text-[#FFFFFF] text-[16px] font-roboto font-medium leading-[24px] tracking-[0.5px]" >
               Login
             </Link>
             {/* Join Now Button */}
