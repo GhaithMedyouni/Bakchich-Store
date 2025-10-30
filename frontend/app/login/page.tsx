@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import bakchich from "../../public/bakchich.png";
+import title from "../../public/title.png"; // ton 1er fichier (BAKCHICH NEW FEATURE)
+import grid from "../../public/grid.png"; // ton 2e fichier (grille blanche)
+import money from "../../public/money.png"; // ton 3e fichier (main + billets)
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -42,7 +45,7 @@ export default function Login() {
           </h1>
           <p className="text-sm md:text-base font-normal text-[#040308] mb-6">
             Don’t have an account?{" "}
-            <a href="/register" className="text-[#312ECB] hover:underline">
+            <a href="/register/vendeur" className="text-[#312ECB] hover:underline">
               Create a store
             </a>
           </p>

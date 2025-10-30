@@ -70,9 +70,7 @@ const Nav = () => {
               Login
             </Link>
             {/* Join Now Button */}
-            <Link
-              href={{ pathname: "/account", query: { view: "register1" } }}
-              className="bg-[#496CCB] text-[#FFFFFF] w-[153px] h-[40px] px-8 py-4 rounded-[46px] flex items-center"
+            <Link href="/register/client" className="bg-[#496CCB] text-[#FFFFFF] w-[153px] h-[40px] px-8 py-4 rounded-[46px] flex items-center"
             >
                <div className="   text-[16px] leading-[24px] tracking-[0.5px] font-medium text-[#FFFFFF]">&gt;  Join now</div>
             </Link>

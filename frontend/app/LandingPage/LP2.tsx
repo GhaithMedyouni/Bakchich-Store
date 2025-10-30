@@ -28,7 +28,7 @@ export default function LandingPage2() {
              transforming fans<br /> into brand ambassadors.
           </p>
 
-          <a href="/account">
+          <a href="/register/vendeur">
             <button className="bg-[#F8D938] w-[200px] h-[50px] mt-6 rounded-[25px] text-[18px] text-[#000000] font-bold shadow-md transition-all hover:bg-[#FFF700] hover:scale-105">
               Create Shop
             </button>

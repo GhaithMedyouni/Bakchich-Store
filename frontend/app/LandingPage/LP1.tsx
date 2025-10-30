@@ -32,7 +32,7 @@ export default function LandingPage1() {
                         Design your merch, launch your shop on <span className="font-bold">Bakchich</span>, <br />
                         and let your fans rock your brand!
                     </p>
-                    <a href="/account">
+                    <a href="/register/vendeur">
                         <button
                             className="bg-[#F8D938] w-[200px] h-[50px] mt-8 rounded-[25px] 
                          text-[18px] text-[#000000] font-bold 
