@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Aboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+        .orb-1 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            bottom: -30px;
+            right: -30px;
+            animation-delay: 2s;
+        }
+        .orb-3 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            top: 50%;
+            right: 10%;
+            animation-delay: 4s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+        .sparkle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .sparkle-2 { top: 60%; left: 80%; animation-delay: 1s; }
+        .sparkle-3 { top: 40%; left: 30%; animation-delay: 2s; }
+        .sparkle-4 { top: 70%; right: 20%; animation-delay: 1.5s; }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        .header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 40px;
+        }
+        .icon-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .icon {
+            font-size: 64px;
+        }
+        .header-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+        }
+        .header-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-weight: 500;
+        }
+        .content {
+            padding: 50px 40px;
+        }
+        .greeting {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+        .message {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.8;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+        .features {
+            display: table;
+            width: 100%;
+            margin: 40px 0;
+        }
+        .feature {
+            display: table-row;
+        }
+        .feature-icon {
+            display: table-cell;
+            width: 60px;
+            padding: 15px 0;
+            vertical-align: top;
+        }
+        .feature-content {
+            display: table-cell;
+            padding: 15px 0 15px 15px;
+            vertical-align: top;
+        }
+        .feature-icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .feature-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 5px 0;
+        }
+        .feature-desc {
+            font-size: 14px;
+            color: #666666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .cta-section {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+            margin: 40px 0;
+        }
+        .footer {
+            background: #f8f9fc;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        .footer-text {
+            font-size: 13px;
+            color: #999999;
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        .social-links {
+            margin: 20px 0 10px 0;
+        }
+        .social-link {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            margin: 0 6px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            color: #666666;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="sparkle sparkle-1"></div>
+            <div class="sparkle sparkle-2"></div>
+            <div class="sparkle sparkle-3"></div>
+            <div class="sparkle sparkle-4"></div>
+            
+            <div class="header-content">
+                <div class="icon-wrapper">
+                    <span class="icon">✨</span>
+                </div>
+                <h1 class="header-title">Welcome Aboard!</h1>
+                <p class="header-subtitle">Your journey starts here</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2 class="greeting">Hey {{name}}! 👋</h2>
+            <p class="message">
+                We're absolutely thrilled to have you join our community. Get ready to experience something extraordinary!
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <div class="feature-icon-circle">🚀</div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Lightning Fast Setup</h3>
+                        <p class="feature-desc">Get started in minutes, not hours. We've made everything super simple.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <div class="feature-icon-circle">💎</div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Premium Features</h3>
+                        <p class="feature-desc">Access powerful tools designed to help you succeed from day one.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <div class="feature-icon-circle">🤝</div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">24/7 Support</h3>
+                        <p class="feature-desc">Our team is always here to help you every step of the way.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <a href="#" class="cta-button">Let's Get Started →</a>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <p class="message">
+                Have questions? Just hit reply – we'd love to hear from you!
+            </p>
+        </div>
+        
+        <div class="footer">
+            <div class="social-links">
+                <a href="#" class="social-link">📘</a>
+                <a href="#" class="social-link">🐦</a>
+                <a href="#" class="social-link">📷</a>
+                <a href="#" class="social-link">💼</a>
+            </div>
+            <p class="footer-text">
+                <strong>Made with ❤️ by our team</strong>
+            </p>
+            <p class="footer-text">
+                You're receiving this because you signed up for an account.
+            </p>
+            <p class="footer-text" style="margin-top: 15px; color: #cccccc;">
+                © 2025 All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

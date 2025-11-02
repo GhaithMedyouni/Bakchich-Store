@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Google Login Test</title>
+</head>
+<body>
+<h2>Login with Google to get Firebase ID Token</h2>
+<button id="loginBtn">Login with Google</button>
+
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+<script>
+  // Replace <YOUR_API_KEY> and <YOUR_PROJECT_ID> with your Firebase Web app config
+  const firebaseConfig = {
+    apiKey: "AIzaSyCkYi5DJ2Ckdau6xj5nqIQ8EuwOPrx-ePA",
+    authDomain: "bakchich-4eeee.firebaseapp.com", 
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  const loginBtn = document.getElementById('loginBtn');
+  loginBtn.addEventListener('click', async () => {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const result = await firebase.auth().signInWithPopup(provider);
+
+      // Get the Firebase ID token
+      const idToken = await result.user.getIdToken();
+      console.log("Firebase ID Token:", idToken);
+
+      // Display in the page
+      alert("Firebase ID Token generated! Check console for value.");
+    } catch (err) {
+      console.error(err);
+      alert("Login failed. Check console.");
+    }
+  });
+</script>
+</body>
+</html>
