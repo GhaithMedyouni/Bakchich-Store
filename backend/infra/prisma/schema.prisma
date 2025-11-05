@@ -7,18 +7,53 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  USER
+  VENDOR
+  ADMIN
+}
+
 model User {
   id               String           @id @default(uuid())
   email            String           @unique
   password         String
   name             String?
-  role             String           @default("USER")
-  googleId         String?  @unique
+  role             UserRole         @default(USER)
+  googleId         String?          @unique
   refreshTokenHash String?
+
   createdAt        DateTime         @default(now())
   updatedAt        DateTime         @updatedAt
 
   passwordResets   PasswordReset[]
+  vendorInfo       VendorInfo?
+
+  // One-to-one relation
+  @@map("users")
+}
+
+model VendorInfo {
+  id          String     @id @default(uuid())
+  companyName String
+  photo       String?  
+  phone       String?
+  address     String?
+  categories  Category[] 
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  user        User       @relation(fields: [userId], references: [id])
+  userId      String     @unique
+
+  @@map("vendor_infos")
+}
+
+model Category {
+  id      String       @id @default(uuid())
+  name    String       @unique
+  vendors VendorInfo[]
+
+  @@map("categories")
 }
 
 model PasswordReset {
@@ -34,4 +69,5 @@ model PasswordReset {
 
   @@index([userId])
   @@index([expiresAt])
+  @@map("password_resets")
 }

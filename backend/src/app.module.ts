@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { PrismaModule } from '../infra/prisma/prisma.module';
 import { AuthModule } from './auth/auth.module'; 
 import { MailModule } from './mail/mail.module';
+import { UploadModule } from './cloudinary/cloudinary.module';
+
 
 @Module({
   imports: [
@@ -14,6 +16,7 @@ import { MailModule } from './mail/mail.module';
     PrismaModule,
     AuthModule, 
     MailModule,
+    UploadModule
 
   ],
   controllers: [AppController],
