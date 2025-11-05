@@ -21,6 +21,7 @@ export default function Register() {
   const [agree, setAgree] = useState(false);
 
   // === Étape 3 : photo de profil ===
+  const [storeName, setStoreName] = useState("");
   const [profilePic, setProfilePic] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +53,7 @@ export default function Register() {
     e.preventDefault();
     console.log({
       firstName, lastName, creatorName,
-      email, phone, password,
+      email, phone, password, storeName,
       profilePic, selectedCats
     });
     alert("✅ Account created successfully!");
@@ -259,15 +260,19 @@ export default function Register() {
                   alert("⚠️ Please upload a profile picture before continuing!");
                   return;
                 }
+                if (!storeName.trim()) {
+                  alert("⚠️ Please enter your store name before continuing!");
+                  return;
+                }
 
                 handleNext();
               }}
-              className="space-y-4"
+              className="space-y-6"
             >
               <div className="flex flex-col items-center">
                 {/* 🖼️ Aperçu photo */}
 
-                <div className="w-32 h-32 rounded-full bg-gray-100 flex items-center justify-center mb-6 overflow-hidden border">
+                <div className="w-32 h-32 rounded-full bg-gray-100 flex items-center justify-center mb-6 overflow-hidden border mt-[-15px]">
                   {preview ? (
                     <img
                       src={preview}
@@ -303,6 +308,19 @@ export default function Register() {
                     className="hidden"
                   />
                 </label>
+                {/* 🏪 Champ Store Name */}
+                <div>
+                  <label className="text-sm text-[#09090B] mb-1 mt-6 block">
+                    Store Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter your store name"
+                    value={storeName}
+                    onChange={(e) => setStoreName(e.target.value)}
+                    className="p-3 border rounded-md w-full outline-none focus:ring-2 focus:ring-[#4670CF]"
+                  />
+                </div>
 
                 {/* 🟦 Boutons de navigation */}
                 <div className="flex justify-between mt-6 gap-4 w-full">

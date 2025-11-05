@@ -32,8 +32,7 @@ export default function Login() {
         <Image
           src={bakchich}
           alt="Description de l'image"
-          layout="fill" // Permet à l'image de remplir tout le conteneur
-           // Utilise object-cover pour que l'image prenne tout l'espace
+          layout="fill" 
         />
       </div>
 
